@@ -9,7 +9,7 @@
  - 安装OpenResty
     
         ./configure --prefix=/opt/openresty/openresty --with-luajit
-        make -j2
+        make -j2 #双核j2 四核j4 以此类推
         make install
  - 将magick文件夹 复制到/opt/openresty/lualib 下
  - 将nginx.conf 覆盖/opt/openresty/nginx/conf 下原有文件
