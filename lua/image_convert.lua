@@ -88,7 +88,11 @@ local cache_key = image_root .. request_uri
 --ngx.log(ngx.INFO, 'cache_key:', cache_key)
 if image_service == nil then
     -- 获取原图
-    response(source)
+    local file = io.open(source);
+    local source_image = file:read("*all")
+    file:close()
+    ngx.log(ngx.INFO, "get source file!")
+    ngx.say(source_image)
 elseif image_service == 'thumb' then
     -- thumb 裁切（缩放）
     if file_exists(cache_key) then
